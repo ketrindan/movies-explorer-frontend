@@ -111,11 +111,9 @@
 
 .navigation__background {
   display: none;
-  transition: all 0.5s linear;
   width: 100vh;
   height: 100vh;
   background-color: #000000;
-  display: flex;
   justify-content: end;
   align-items: center;
   position: fixed;
@@ -123,6 +121,7 @@
   opacity: 0.3;
   top: 0;
   left: 0;
+  transition: all 0.5s linear;
 }
 
 .navigation__background_opened {
@@ -136,7 +135,7 @@
   height: 100%;
   background-color: #FFFFFF;
   right: -100%;
-  transition: all 0.5s linear;
+  transition: all 1s linear;
 }
 
 .navigation__menu_opened {
