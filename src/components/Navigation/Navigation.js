@@ -15,10 +15,10 @@ function Navigation(props) {
       {props.isLoggedIn ? (
           <>
           <div className='navigation__movies'>
-            <NavLink to='/movies' className={({isActive}) => `${isActive ? "navigation__link navigation__link_movies navigation__link_active" : "navigation__link navigation__link_movies"}`}>
+            <NavLink to='/movies' className="navigation__link navigation__link_movies" activeClassName="navigation__link_active">
               Фильмы
             </NavLink>
-            <NavLink to='/saved-movies' className={({isActive}) => `${isActive ? "navigation__link navigation__link_movies navigation__link_active" : "navigation__link navigation__link_movies"}`}>
+            <NavLink to='/saved-movies' className="navigation__link navigation__link_movies" activeClassName="navigation__link_active">
               Сохранённые фильмы
             </NavLink>
           </div>
@@ -37,18 +37,18 @@ function Navigation(props) {
           <div className={`navigation__background ${isMenuOpen ? "navigation__background_opened" : ""}`}>
             <div className={`navigation__menu ${isMenuOpen ? "navigation__menu_opened" : ""}`}>
               <div className='navigation__movies_menu'>
-              <NavLink to='/' className={({isActive}) => `${isActive ? "navigation__link navigation__link_menu navigation__link_active" : "navigation__link navigation__link_menu"}`}>
+              <NavLink exact to='/' className="navigation__link navigation__link_menu" activeClassName="navigation__link_active">
                   Главная
                 </NavLink>
-                <NavLink to='/movies' className={({isActive}) => `${isActive ? "navigation__link navigation__link_menu navigation__link_active" : "navigation__link navigation__link_menu"}`}>
+                <NavLink to='/movies' className="navigation__link navigation__link_menu" activeClassName="navigation__link_active">
                   Фильмы
                 </NavLink>
-                <NavLink to='/saved-movies' className={({isActive}) => `${isActive ? "navigation__link navigation__link_menu navigation__link_active" : "navigation__link navigation__link_menu"}`}>
+                <NavLink to='/saved-movies' className="navigation__link navigation__link_menu" activeClassName="navigation__link_active">
                   Сохранённые фильмы
                 </NavLink>
               </div>
               <Link to='/profile'>
-                <button className='navigation__button navigation__button_profile'>
+                <button className='navigation__button navigation__button_menu'>
                   Аккаунт
                 </button>
               </Link>

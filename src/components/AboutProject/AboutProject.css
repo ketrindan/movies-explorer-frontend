@@ -1,0 +1,161 @@
+.aboutProject {
+  padding: 110px 70px;
+}
+
+.aboutProject__title {
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 27px;
+  padding-bottom: 23px;
+  border-bottom: 1px solid #000000;
+  margin: 0 0 70px 0;
+  letter-spacing: -0.04em;
+}
+
+.aboutProject__container {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 110px;
+  column-gap: 40px;
+}
+
+.aboutProject__box {
+  max-width: 550px;
+}
+
+.aboutProject__subtitle {
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 24px;
+  margin: 0 0 26px 0;
+  padding: 0;
+  letter-spacing: -0.04em;
+}
+
+.aboutProject__description {
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  margin: 0;
+  padding: 0;
+}
+
+.aboutProject__timeline {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  row-gap: 14px;
+}
+
+.aboutProject__time {
+  text-align: center;
+  margin: 0;
+  padding: 9px 0;
+  background-color: #F2F2F2;
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+}
+
+.aboutProject__time_black {
+  background-color: #000000;
+  color: #FFFFFF;
+}
+
+.aboutProject__stage {
+  text-align: center;
+  color: #A0A0A0;
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  margin: 0;
+  padding: 0;
+}
+
+@media screen and (max-width: 768px) {
+  .aboutProject {
+    padding: 90px 50px;
+  }
+
+  .aboutProject__container {
+    column-gap: 30px;
+    margin-bottom: 93px;
+  }
+
+
+  .aboutProject__box {
+    max-width: 319px;
+  }
+
+  .aboutProject__subtitle {
+    margin: 0 0 22px 0;
+  }
+
+  .aboutProject__description {
+    font-size: 12px;
+    line-height: 18px;
+  }
+
+  .aboutProject__stage {
+    font-weight: 400;
+  }
+}
+
+@media screen and (max-width: 426px) {
+  .aboutProject {
+    padding: 70px 18px;
+  }
+
+  .aboutProject__title {
+    font-size: 18px;
+    line-height: 22px;
+    padding-bottom: 28px;
+    margin: 0 0 60px 0;
+  }
+
+  .aboutProject__container {
+    flex-direction: column;
+    gap: 56px;
+    margin-bottom: 60px;
+  }
+
+  .aboutProject__box {
+    max-width: 100%;
+  }
+
+  .aboutProject__subtitle {
+    font-size: 18px;
+    line-height: 22px;
+  }
+
+  .aboutProject__description {
+    font-size: 11px;
+    line-height: 16px;
+  }
+
+  .aboutProject__timeline {
+    grid-template-columns: 1fr 1.85fr;
+    row-gap: 10px;
+  }
+
+  .aboutProject__time {
+    padding: 11px 0;
+    font-size: 11px;
+    line-height: 13px;
+  }
+  
+
+  .aboutProject__stage {
+    font-size: 11px;
+    line-height: 13px;
+  }
+}
