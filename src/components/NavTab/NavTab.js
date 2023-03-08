@@ -7,8 +7,8 @@ function NavTab() {
     <section className="navtab">
       <ul className="navtab__menu">
         <li className="navtab__item"><a className="navtab__link" href="#aboutProject">О проекте</a></li>
-        <li className="navtab__item"><a className="navtab__link" href="#">Технологии</a></li>
-        <li className="navtab__item"><a className="navtab__link" href="#">Студент</a></li>
+        <li className="navtab__item"><a className="navtab__link" href="#techs">Технологии</a></li>
+        <li className="navtab__item"><a className="navtab__link" href="#aboutme">Студент</a></li>
       </ul>
     </section>
   )
