@@ -6,6 +6,9 @@
   margin: 0 auto;
   padding: 18px 70px;
   box-sizing: border-box;
+}
+
+.header_main {
   position: absolute;
   top: 0;
   left: 0;

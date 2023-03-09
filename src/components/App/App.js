@@ -1,29 +1,28 @@
 import React, { useState } from 'react';
+import { Route, Switch, Redirect } from 'react-router-dom';
 
 import './App.css';
 
-import Promo from '../Promo/Promo';
-import AboutProject from '../AboutProject/AboutProject';
-import Techs from '../Techs/Techs';
-import AboutMe from '../AboutMe/AboutMe';
-import Portfolio from '../Portfolio/Portfolio';
-import Footer from '../Footer/Footer';
+import Main from '../Main/Main';
+import Movies from '../Movies/Movies';
 
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
 
   return (
     <div className="body">
       <div className="page">
-       <Promo isLoggedIn={isLoggedIn} />
-       <AboutProject />
-       <Techs />
-       <AboutMe />
-       <Portfolio />
-       <Footer />
+      <Switch>
+        <Route exact path="/">
+          <Main isLoggedIn={isLoggedIn} />
+        </Route> 
+        <Route path="/movies">
+          <Movies isLoggedIn={isLoggedIn} />
+        </Route> 
+       </Switch>
       </div>
     </div>
-  );
+  )
 }
 
 export default App;

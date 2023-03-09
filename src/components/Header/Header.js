@@ -8,7 +8,7 @@ import './Header.css';
 
 function Header(props) {
   return (
-    <header className="header">
+    <header className={`header ${props.isMain ? "header_main" : ""}`}>
       <Link to="/">
         <img src={logo} className="header__logo" alt="Логотип" />
       </Link>
