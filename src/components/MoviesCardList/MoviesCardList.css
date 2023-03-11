@@ -1,0 +1,19 @@
+.movies-list {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding: 70px 70px 10px 70px;
+}
+
+@media screen and (max-width: 768px) {
+  .movies-list {
+    padding: 60px 30px 30px 30px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .movies-list {
+    padding: 40px 10px 20px 10px;
+    gap: 20px;
+  }
+}

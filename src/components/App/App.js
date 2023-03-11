@@ -5,6 +5,7 @@ import './App.css';
 
 import Main from '../Main/Main';
 import Movies from '../Movies/Movies';
+import SavedMovies from '../SavedMovies/SavedMovies';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(true);
@@ -18,6 +19,9 @@ function App() {
         </Route> 
         <Route path="/movies">
           <Movies isLoggedIn={isLoggedIn} />
+        </Route> 
+        <Route path="/saved-movies">
+          <SavedMovies isLoggedIn={isLoggedIn} />
         </Route> 
        </Switch>
       </div>

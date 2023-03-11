@@ -1,6 +1,8 @@
 import React from 'react';
 
 import './SearchForm.css';
+import '../FilterCheckbox/FilterCheckbox';
+import FilterCheckbox from '../FilterCheckbox/FilterCheckbox';
 
 function SearchForm() {
   return (
@@ -10,7 +12,7 @@ function SearchForm() {
         placeholder="Фильм" required/>
         <button className="search__submit-btn" type="button" />
       </form>
-
+      <FilterCheckbox />
     </section>
   )
 }
