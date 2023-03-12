@@ -37,13 +37,13 @@ function Navigation(props) {
           <div className={`navigation__background ${isMenuOpen ? "navigation__background_opened" : ""}`}>
             <div className={`navigation__menu ${isMenuOpen ? "navigation__menu_opened" : ""}`}>
               <div className='navigation__movies_menu'>
-              <NavLink exact to='/' className="navigation__link navigation__link_menu" activeClassName="navigation__link_active">
+              <NavLink exact to='/' className="navigation__link navigation__link_menu" activeClassName="navigation__link_menu_active">
                   Главная
                 </NavLink>
-                <NavLink to='/movies' className="navigation__link navigation__link_menu" activeClassName="navigation__link_active">
+                <NavLink to='/movies' className="navigation__link navigation__link_menu" activeClassName="navigation__link_menu_active">
                   Фильмы
                 </NavLink>
-                <NavLink to='/saved-movies' className="navigation__link navigation__link_menu" activeClassName="navigation__link_active">
+                <NavLink to='/saved-movies' className="navigation__link navigation__link_menu" activeClassName="navigation__link_menu_active">
                   Сохранённые фильмы
                 </NavLink>
               </div>

@@ -8,7 +8,7 @@
   box-sizing: border-box;
 }
 
-.header_main {
+.header_absolute{
   position: absolute;
   top: 0;
   left: 0;

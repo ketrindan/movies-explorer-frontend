@@ -6,6 +6,8 @@ import './App.css';
 import Main from '../Main/Main';
 import Movies from '../Movies/Movies';
 import SavedMovies from '../SavedMovies/SavedMovies';
+import Profile from '../Profile/Profile';
+import NotFoundPage from '../NotFoundPage/NotFoundPage';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(true);
@@ -22,6 +24,15 @@ function App() {
         </Route> 
         <Route path="/saved-movies">
           <SavedMovies isLoggedIn={isLoggedIn} />
+        </Route> 
+        <Route path="/profile">
+          <Profile 
+            isLoggedIn={isLoggedIn} 
+            name={"Катя"}
+          />
+        </Route> 
+        <Route path="*">
+          <NotFoundPage />
         </Route> 
        </Switch>
       </div>

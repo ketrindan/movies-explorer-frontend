@@ -10,7 +10,7 @@ function Promo(props) {
     <section className="promo">
       <Header 
         isLoggedIn={props.isLoggedIn} 
-        isMain={true}
+        isAbsolute={true}
       />
       <h1 className="promo__title">Учебный проект студента факультета Веб-разработки.</h1>
       <NavTab />
