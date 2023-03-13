@@ -1,0 +1,166 @@
+.register {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 396px;
+  margin: auto;
+}
+
+.register__header {
+  width: 100%;
+  margin-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.register__logo {
+  cursor: pointer;
+}
+
+
+.register__logo:hover {
+  opacity: 0.6;
+}
+
+.register__title {
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 29px;
+  margin: 0;
+  padding: 0;
+}
+
+.register__form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
+}
+
+.register__label {
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 12px;
+  color: #A0A0A0;
+  margin-bottom: 10px;
+}
+
+.register__input {
+  width: 100%;
+  background: #F9F9F9;
+  border-radius: 8px;
+  border: none;
+  padding: 15px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 16px;
+}
+
+.register__input_error {
+  color: #FF4062;
+}
+
+.register__error {
+  display: block;
+  min-height: 12px;
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 12px;
+  color: #FF4062;
+  margin-bottom: 15px;
+  opacity: 0;
+  transition: opacity 0.3s linear;
+}
+
+.register__error_active {
+  opacity: 1;
+}
+
+
+.register__error:last-of-type {
+  margin-bottom: 69px;
+}
+
+.register__btn {
+  height: 45px;
+  width: 100%;
+  background: #000000;
+  border-radius: 3px;
+  border-style: none;
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  text-align: center;
+  color: #FFFFFF;
+  cursor: pointer;
+}
+
+.register__btn:hover {
+  opacity: 0.6;
+}
+
+.register__container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+}
+
+.register__caption {
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  color: #A0A0A0;
+  margin: 0;
+  padding: 0;
+}
+
+.register__signin-link {
+  color: #000000;
+  text-decoration: none;
+  margin: 0 0 0 6px;
+  padding: 0;
+}
+
+@media screen and (max-width: 426px) {
+  .register {
+    width: 81%;
+  }
+
+  .register__header {
+    margin-bottom: 80px;
+    gap: 50px;
+    align-items: center;
+  }
+
+  .register__input {
+    font-weight: 400;
+  }
+
+  .register__btn {
+    font-size: 12px;
+    line-height: 15px;
+  }
+
+  .register__caption {
+    font-size: 12px;
+    line-height: 15px;
+  }
+}
