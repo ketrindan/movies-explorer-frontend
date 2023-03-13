@@ -26,11 +26,11 @@ function Profile(props) {
         <form className="profile__form">
           <div className="profile__input-box">
             <label className="profile__label">Имя</label>
-            <input className="profile__input" type="text" value={name} onChange={handleChangeName} minLength="2" required/>
+            <input className="profile__input" type="text" placeholder="Иван" value={name} onChange={handleChangeName} minLength="2" required/>
           </div>
           <div className="profile__input-box">
             <label className="profile__label">E-mail</label>
-            <input className="profile__input" type="email" value={email} onChange={handleChangeEmail} required/>
+            <input className="profile__input" type="email" placeholder="qwerty@yandex.ru" value={email} onChange={handleChangeEmail} required/>
           </div>
         </form>
         <div className="profile__links">

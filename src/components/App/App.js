@@ -8,6 +8,7 @@ import Movies from '../Movies/Movies';
 import SavedMovies from '../SavedMovies/SavedMovies';
 import Profile from '../Profile/Profile';
 import Register from '../Register/Register';
+import Login from '../Login/Login';
 import NotFoundPage from '../NotFoundPage/NotFoundPage';
 
 function App() {
@@ -35,9 +36,15 @@ function App() {
         <Route path="/signup">
           <Register />
         </Route>
+        <Route path="/signin">
+          <Login />
+        </Route>
         <Route path="*">
           <NotFoundPage />
         </Route> 
+        <Route>
+              {isLoggedIn ? <Redirect to="/" /> : <Redirect to="/sign-in" />}
+            </Route>
        </Switch>
       </div>
     </div>

@@ -66,6 +66,11 @@
   line-height: 16px;
 }
 
+.register__input:focus {
+  outline: none;
+}
+
+
 .register__input_error {
   color: #FF4062;
 }

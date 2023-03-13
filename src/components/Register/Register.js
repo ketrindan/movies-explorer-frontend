@@ -16,17 +16,17 @@ function Register() {
       <form className="register__form">
         <label className="register__label" htmlFor="name">Имя</label>
         <input type="text" className="register__input" 
-          id="name" name="name" required minLength="2" value={"Катя"}
+          id="name" name="name" required minLength="2" placeholder="Иван" value={"Катя"}
         />
         <span className="register__error"></span>
         <label className="register__label" htmlFor="email">E-mail</label>
         <input type="email" className="register__input" 
-          id="email" name="email" required value={"katya@yandex.ru"}
+          id="email" name="email" required placeholder="qwerty@yandex.ru" value={"katya@yandex.ru"}
         />
         <span className="register__error"></span>
         <label className="register__label" htmlFor="password">Имя</label>
         <input type="password" className="register__input register__input_error" 
-          id="password" name="password" required minLength="6" value={"123456"}
+          id="password" name="password" placeholder="Введите пароль" required minLength="6" value={"123456"}
         />
         <span className="register__error register__error_active">Что-то пошло не так...</span>
         <button className="register__btn" type="submit">Зарегистрироваться</button>
