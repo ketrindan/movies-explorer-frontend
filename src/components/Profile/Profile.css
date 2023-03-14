@@ -1,7 +1,6 @@
 .profile {
-  position: relative;
-  height: 100vh;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
@@ -11,6 +10,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-top: 74px;
+  padding-bottom: 70px;
 }
 
 .profile__title {
@@ -65,7 +66,8 @@
 }
 
 .profile__input:focus {
-  outline: none;
+  outline: 1px solid #000000;
+  border-radius: 3px;
 }
 
 .profile__links {
@@ -99,6 +101,11 @@
 }
 
 @media screen and (max-width: 768px) {
+  .profile__container {
+    padding-top: 236px;
+    padding-bottom: 269px;
+  }
+
   .profile__form {
     margin-top: 96px;
     margin-bottom: 210px;
@@ -106,8 +113,16 @@
 }
 
 @media screen and (max-width: 526px) {
+  .profile__container {
+    padding-top: 70px;
+    padding-bottom: 40px;
+    justify-content: space-between;
+  }
+
   .profile__form {
     width: 81%;
+    margin-top: 80px;
+    margin-bottom: 379px;
   }
 
   .profile__links {

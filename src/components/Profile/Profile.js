@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 import './Profile.css';
 import Header from '../Header/Header';
@@ -35,7 +36,9 @@ function Profile(props) {
         </form>
         <div className="profile__links">
           <button className="profile__btn profile__btn_edit">Редактировать</button>
-          <button className="profile__btn profile__btn_signout">Выйти из аккаунта</button>
+          <Link to='/signin'>
+            <button className="profile__btn profile__btn_signout">Выйти из аккаунта</button>
+          </Link>
         </div>
       </div>
     </section>

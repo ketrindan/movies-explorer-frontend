@@ -18,7 +18,7 @@ function AboutMe() {
               В свободное время люблю читать книги, заниматься спортом.
             </p>
           </div>  
-          <a className="aboutme__link" href="https://github.com/ketrindan">Github</a>
+          <a className="aboutme__link" href="https://github.com/ketrindan" target="blank">Github</a>
         </div>
         <img className="aboutme__photo" src={photo} alt="фото" />
       </div>

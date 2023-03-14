@@ -8,10 +8,8 @@
   box-sizing: border-box;
 }
 
-.header_absolute{
-  position: absolute;
-  top: 0;
-  left: 0;
+.header_pink {
+  background-color: #F3C1F8;
 }
 
 .header__logo {

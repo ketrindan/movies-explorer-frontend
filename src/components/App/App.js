@@ -12,24 +12,22 @@ import Login from '../Login/Login';
 import NotFoundPage from '../NotFoundPage/NotFoundPage';
 
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
-
   return (
     <div className="body">
-      <div className="page">
+      <div className="app">
       <Switch>
         <Route exact path="/">
-          <Main isLoggedIn={isLoggedIn} />
+          <Main isLoggedIn={false} />
         </Route> 
         <Route path="/movies">
-          <Movies isLoggedIn={isLoggedIn} />
+          <Movies isLoggedIn={true} />
         </Route> 
         <Route path="/saved-movies">
-          <SavedMovies isLoggedIn={isLoggedIn} />
+          <SavedMovies isLoggedIn={true} />
         </Route> 
         <Route path="/profile">
           <Profile 
-            isLoggedIn={isLoggedIn} 
+            isLoggedIn={true} 
             name={"Катя"}
           />
         </Route> 
@@ -42,9 +40,6 @@ function App() {
         <Route path="*">
           <NotFoundPage />
         </Route> 
-        <Route>
-              {isLoggedIn ? <Redirect to="/" /> : <Redirect to="/sign-in" />}
-            </Route>
        </Switch>
       </div>
     </div>

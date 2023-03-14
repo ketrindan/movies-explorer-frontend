@@ -6,8 +6,9 @@
   min-height: 100vh;
 }
 
-.page {
+.app {
   min-width: 320px;
+  max-width: 1280px;
   margin: 0 auto;
   font-family: 'Inter', Arial, Helvetica, sans-serif;
   background-color: #FFFFFF;

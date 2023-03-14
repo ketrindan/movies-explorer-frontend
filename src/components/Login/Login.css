@@ -1,10 +1,10 @@
 .login {
-  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   width: 396px;
   margin: auto;
+  padding: 70px 0;
 }
 
 .login__header {
@@ -67,7 +67,8 @@
 }
 
 .login__input:focus {
-  outline: none;
+  outline: 1px solid #000000;
+  border-radius: 3px;
 }
 
 .login__input_error {
@@ -94,7 +95,7 @@
 
 
 .login__error:last-of-type {
-  margin-bottom: 69px;
+  margin-bottom: 157px;
 }
 
 .login__btn {
@@ -141,11 +142,23 @@
   text-decoration: none;
   margin: 0 0 0 6px;
   padding: 0;
+  cursor: pointer;
+}
+
+.login__signin-link:hover {
+  opacity: 0.6;
+}
+
+@media screen and (max-width: 768px) {
+  .login {
+    padding: 232px 0;
+  }
 }
 
 @media screen and (max-width: 426px) {
   .login {
     width: 81%;
+    padding: 56px 0 30px 0;
   }
 
   .login__header {
@@ -156,6 +169,10 @@
 
   .login__input {
     font-weight: 400;
+  }
+
+  .login__error:last-of-type {
+    margin-bottom: 245px;
   }
 
   .login__btn {

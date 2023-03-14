@@ -8,7 +8,7 @@ import './Header.css';
 
 function Header(props) {
   return (
-    <header className={`header ${props.isAbsolute ? "header_absolute" : ""}`}>
+    <header className={`header ${props.isMain ? "header_pink" : ""}`}>
       <Link to="/">
         <img src={logo} className="header__logo" alt="Логотип" />
       </Link>

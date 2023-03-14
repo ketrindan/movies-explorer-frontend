@@ -57,17 +57,14 @@ function Navigation(props) {
         </>
       ) : (
         <div className='navigation__auth'>
-          <Link to='/signup' className='navigation__link'>Регистрация</Link>
+          <Link to='/signup' className='navigation__link navigation__link_auth'>Регистрация</Link>
           <Link to='/signin'>
             <button className='navigation__button'>
               Войти
             </button>
           </Link>
         </div>
-      )
-    }
-    
-
+      )}
     </nav> 
   )
 }
