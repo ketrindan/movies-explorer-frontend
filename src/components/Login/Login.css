@@ -1,10 +1,9 @@
 .login {
+  height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   width: 396px;
-  margin: auto;
-  padding: 70px 0;
+  margin: 70px auto;
 }
 
 .login__header {
@@ -118,6 +117,11 @@
   opacity: 0.6;
 }
 
+.login__btn_inactive {
+  opacity: 0.2;
+  cursor: not-allowed;
+}
+
 .login__container {
   width: 100%;
   display: flex;
@@ -151,14 +155,14 @@
 
 @media screen and (max-width: 768px) {
   .login {
-    padding: 232px 0;
+    margin: 232px auto;
   }
 }
 
 @media screen and (max-width: 426px) {
   .login {
     width: 81%;
-    padding: 56px 0 30px 0;
+    margin: 56px auto 30px auto;
   }
 
   .login__header {

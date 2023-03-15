@@ -79,7 +79,6 @@
 .profile__btn {
   border: none;
   background-color: transparent;
-  cursor: pointer;
   font-family: 'Inter', Arial, Helvetica, sans-serif;
   font-style: normal;
   font-size: 13px;
@@ -93,11 +92,19 @@
 
 .profile__btn_edit {
   font-weight: 400;
+  color: #A0A0A0;
+  cursor: not-allowed;
+}
+
+.profile__btn_active {
+  color: #000000;
+  cursor: pointer;
 }
 
 .profile__btn_signout {
   font-weight: 500;
   color: #FF4062;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 768px) {
