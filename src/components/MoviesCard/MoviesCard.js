@@ -1,24 +1,35 @@
 import './MoviesCard.css';
 
+import convertDuration from '../../utils/utils';
+
 function MoviesCard(props) {
-  const cardSaveButtonClassName = (
-    `movie__btn ${props.movie.saved ? 'movie__btn_saved' : 'movie__btn_save'}`
-  );
+
+  function handleDeleteMovie() {
+    props.onDeleteMovie(props.movie);
+  }
+
+  function handleSaveMovie() {
+    props.onSaveMovie(props.movie);
+  }
 
   return (
     <article className="movie">
       <div className="movie__container">
         <div className="movie__info">
-          <h3 className="movie__name">{props.movie.name}</h3>
-          <p className="movie__duration">{props.movie.duration}</p>
+          <h3 className="movie__name">{props.movie.nameRU}</h3>
+          <p className="movie__duration">{convertDuration(props.movie.duration)}</p>
         </div>
         {props.isSavedMovies ? (
-          <button className="movie__btn movie__btn_delete" />
+          <button className="movie__btn movie__btn_delete" onClick={handleDeleteMovie} />
         ) : (
-          <button className={cardSaveButtonClassName} />
+          <button className={`movie__btn ${props.isSaved ? 'movie__btn_saved' : 'movie__btn_save'}`} onClick={handleSaveMovie} />
         )}
       </div>
-      <img className="movie__image" alt={`Постер фильма ${props.movie.name}`} src={props.movie.image} />
+      <a href={props.movie.trailerLink} target="blank">
+        <img className="movie__image" alt={`Постер фильма ${props.movie.nameRU}`} src={props.isSavedMovies ?
+            props.movie.image :
+            `https://api.nomoreparties.co/${props.movie.image.url}`} />
+      </a>
     </article>
   )
 }

@@ -125,7 +125,8 @@
   font-weight: 500;
 }
 
-.profile__btn_signout {
+.profile__signout {
+  text-decoration: none;
   font-weight: 500;
   color: #FF4062;
   cursor: pointer;
