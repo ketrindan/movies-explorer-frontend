@@ -112,13 +112,18 @@ function App() {
   } 
 
   function handleChangeMovieStatus(movie) {
-    const isSaved = savedMovies.some(i => i.movieId === movie.movieId);
+    const isSaved = savedMovies.some(i => i.movieId === movie.id);
     const token = localStorage.getItem('token');
+    const selectedMovie = savedMovies.find(i => {
+      return i.movieId === movie.id
+    });
+
+    const id = isSaved ? selectedMovie._id : null;
 
     if (isSaved) {
-      user.deleteMovie(movie, token)
+      user.deleteMovie(id, token)
       .then((movie) => {
-        const updatedMovies = savedMovies.filter(i => movie.movieId !== i.movieId)
+        const updatedMovies = savedMovies.filter(i => movie._id !== i._id)
         localStorage.setItem('savedMovies', JSON.stringify(updatedMovies));
         setSavedMovies(updatedMovies);
       })
@@ -128,11 +133,7 @@ function App() {
         setInfoMessage('Ошибка при удалении фильма')
         openInfoTooltip();
       })
-      .finally(() => {
-        setLoading(false);
-      })
     } else {
-      setLoading(true);
       user.saveMovie(movie, token)
       .then((newMovie) => {
         setSavedMovies((movies) => [...movies, newMovie])
@@ -147,7 +148,6 @@ function App() {
   }
 
   function handleDeleteMovie(movie) {
-    setLoading(true);
     const token = localStorage.getItem('token');
 
     user.deleteMovie(movie.movieId, token)
@@ -161,9 +161,6 @@ function App() {
       setIsSuccessful(false);
       setInfoMessage('Ошибка при удалении фильма')
       openInfoTooltip();
-    })
-    .finally(() => {
-      setLoading(false);
     })
   }
 

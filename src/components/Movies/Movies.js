@@ -49,7 +49,7 @@ function Movies(props) {
     if (areShortMoviesSelected) {
       return searchShortMovies(foundMovies);
     }else {
-      return foundMovies
+      return foundMovies;
     }
   } 
 
@@ -64,7 +64,7 @@ function Movies(props) {
     setFoundMovies(foundMovies)
   }, [allMovies, searchRequest, shortMoviesSelected])
   
-  function handleSearchSubmit({searchRequest, shortMoviesSelected}) {
+  function handleSearchSubmit(searchRequest, shortMoviesSelected) {
     setShortMoviesSelected(shortMoviesSelected);
     setSearchRequest(searchRequest);
     getMovies();
@@ -73,9 +73,9 @@ function Movies(props) {
   function handleCheckbox() {
     setShortMoviesSelected(!shortMoviesSelected);
     if (!shortMoviesSelected) {
-      setFoundMovies(searchShortMovies(foundMovies))
+      setFoundMovies(searchShortMovies(foundMovies));
     } else {
-      setFoundMovies(foundMovies)
+      setFoundMovies(foundMovies);
     }
   }
 

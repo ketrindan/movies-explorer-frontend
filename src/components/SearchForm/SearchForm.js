@@ -21,7 +21,7 @@ function SearchForm(props) {
       setError('Нужно ввести ключевое слово');
       return
     } else {
-      props.onSubmit(values)
+      props.onSubmit(values.searchRequest, props.shortMoviesSelected)
     }
   }
 

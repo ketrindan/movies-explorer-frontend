@@ -18,7 +18,7 @@ function MoviesCardList(props) {
   const moviesCounter = props.movies ? props.movies.length : 0;
 
   function checkIsMovieSaved(movie) {
-    return props.savedMovies.some((savedMovie) => savedMovie.movieId === movie.movieId);
+    return(props.savedMovies.some((savedMovie) => savedMovie.movieId === (movie.movieId || movie.id)));
   }
 
   useEffect(() => {
