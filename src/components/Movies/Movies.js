@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 
 import './Movies.css';
 
@@ -16,6 +17,8 @@ function Movies(props) {
   const [shortMoviesSelected, setShortMoviesSelected] = useState(false);
   const [searchRequest, setSearchRequest] = useState('');
   const [isError, setIsError] = useState(false);
+
+  const location = useLocation();
 
   const shortMovieMaxDuration = 40;
 
@@ -57,6 +60,7 @@ function Movies(props) {
     localStorage.setItem('searchRequest', searchRequest);
     localStorage.setItem('shortMoviesSelected', shortMoviesSelected);
     localStorage.setItem('foundMovies', JSON.stringify(foundMovies));
+    setFoundMovies(foundMovies)
   }, [searchRequest, shortMoviesSelected, foundMovies]);
 
   useEffect(() => {
@@ -78,6 +82,13 @@ function Movies(props) {
       setFoundMovies(foundMovies);
     }
   }
+
+  useEffect(() => {
+    if (localStorage.getItem('shortMoviesSelected') === true) {
+      setShortMoviesSelected(true)
+      console.log(shortMoviesSelected)
+    }
+  }, [location, shortMoviesSelected])
 
   return (
     <section className="movies">

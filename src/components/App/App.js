@@ -69,9 +69,6 @@ function App() {
       setInfoMessage('Произошла ошибка') 
       openInfoTooltip();
     })
-    .finally(() => {
-      setLoading(false);
-    })
   }
 
   function handleTokenCheck() {
@@ -93,7 +90,6 @@ function App() {
   }
 
   function handleUpdateUser(newInfo) {
-    setLoading(true);
     const token = localStorage.getItem('token');
 
     user.changeUserData(newInfo, token)
@@ -150,9 +146,9 @@ function App() {
   function handleDeleteMovie(movie) {
     const token = localStorage.getItem('token');
 
-    user.deleteMovie(movie.movieId, token)
+    user.deleteMovie(movie._id, token)
     .then((movie) => {
-      const updatedMovies = savedMovies.filter(i => movie.movieId !== i.movieId)
+      const updatedMovies = savedMovies.filter(i => movie._id !== i._id)
       localStorage.setItem('savedMovies', JSON.stringify(updatedMovies));
       setSavedMovies(updatedMovies);
     })
@@ -204,6 +200,8 @@ function App() {
               component={SavedMovies}
               isLoggedIn={isLoggedIn} 
               onDeleteMovie={handleDeleteMovie}
+              savedMovies={savedMovies}
+              isLoading={isLoading}
             />
             <ProtectedRoute path="/profile"
               component={Profile} 

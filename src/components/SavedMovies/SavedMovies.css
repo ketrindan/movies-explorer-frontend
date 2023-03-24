@@ -1,0 +1,25 @@
+.saved-movies__empty {
+  min-height: 200px;
+}
+
+.saved-movies__message {
+  width: 100%;
+  text-align: center;
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 30px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+@media screen and (max-width: 426px) {
+  .saved-movies__message {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+}
