@@ -22,22 +22,6 @@ function Movies(props) {
 
   const shortMovieMaxDuration = 40;
 
-  function getMovies() {
-    props.setLoading(true)
-    movie.getMovies()
-    .then((movies) => {
-      localStorage.setItem('allMovies', JSON.stringify(movies));
-      setAllMovies(movies)
-    })
-    .catch((err) => {
-      console.log(err);
-      setIsError(true)
-    })
-    .finally(() => {
-      props.setLoading(false);
-    })
-  }
-
   function searchShortMovies(movies) {
     return movies.filter((movie) =>
       movie.duration <= shortMovieMaxDuration
@@ -51,27 +35,46 @@ function Movies(props) {
 
     if (areShortMoviesSelected) {
       return searchShortMovies(foundMovies);
-    }else {
+    } else {
       return foundMovies;
     }
   } 
 
-  useEffect(() => {
-    localStorage.setItem('searchRequest', searchRequest);
-    localStorage.setItem('shortMoviesSelected', shortMoviesSelected);
-    localStorage.setItem('foundMovies', JSON.stringify(foundMovies));
-    setFoundMovies(foundMovies)
-  }, [searchRequest, shortMoviesSelected, foundMovies]);
+  function renderMovies(movies, searchRequest, shortMoviesSelected) {
+    const foundMovies = searchMovies(movies, searchRequest, shortMoviesSelected);
 
-  useEffect(() => {
-    const foundMovies = searchMovies(allMovies, searchRequest, shortMoviesSelected);
-    setFoundMovies(foundMovies)
-  }, [allMovies, searchRequest, shortMoviesSelected])
+    /*if (shortMoviesSelected) {
+      setFoundMovies(searchShortMovies(foundMovies));
+    } else {
+      setFoundMovies(foundMovies);
+    }*/
+
+    localStorage.setItem('foundMovies', JSON.stringify(foundMovies));
+    setFoundMovies(foundMovies);
+    console.log(foundMovies)
+  }
   
   function handleSearchSubmit(searchRequest, shortMoviesSelected) {
+    localStorage.setItem('searchRequest', searchRequest);
+    localStorage.setItem('shortMoviesSelected', shortMoviesSelected);
+
     setShortMoviesSelected(shortMoviesSelected);
     setSearchRequest(searchRequest);
-    getMovies();
+
+    props.setLoading(true)
+    movie.getMovies()
+    .then((movies) => {
+      localStorage.setItem('allMovies', JSON.stringify(movies));
+      setAllMovies(movies)
+      renderMovies(movies, searchRequest, shortMoviesSelected)
+    })
+    .catch((err) => {
+      console.log(err);
+      setIsError(true)
+    })
+    .finally(() => {
+      props.setLoading(false);
+    })
   }
 
   function handleCheckbox() {
@@ -81,14 +84,34 @@ function Movies(props) {
     } else {
       setFoundMovies(foundMovies);
     }
+    localStorage.setItem('shortMoviesSelected', !shortMoviesSelected);
   }
+ 
+  useEffect(() => {
+    if (localStorage.getItem('shortMoviesSelected') === 'true') {
+      setShortMoviesSelected(true);
+    } else {
+      setShortMoviesSelected(false);
+    }
+  }, [location]);
 
   useEffect(() => {
-    if (localStorage.getItem('shortMoviesSelected') === true) {
-      setShortMoviesSelected(true)
-      console.log(shortMoviesSelected)
+    const foundMovies = searchMovies(allMovies, searchRequest, shortMoviesSelected);
+    setFoundMovies(foundMovies)
+
+    if (localStorage.getItem('foundMovies')) {
+      const renderedMovies = JSON.parse(localStorage.getItem('foundMovies'));
+      setFoundMovies(renderedMovies);
+      if (
+        localStorage.getItem('shortMoviesSelected') === 'true'
+      ) {
+        setFoundMovies(searchShortMovies(renderedMovies));
+      } else {
+        setFoundMovies(renderedMovies);
+      }
+      console.log(foundMovies)
     }
-  }, [location, shortMoviesSelected])
+  }, [location, allMovies, searchRequest, shortMoviesSelected]);
 
   return (
     <section className="movies">
@@ -107,7 +130,7 @@ function Movies(props) {
             Подождите немного и попробуйте ещё раз
           </p>
         )
-        : allMovies.length === 0 ? (
+        : allMovies.length === 0 && foundMovies.length === 0 ? (
           <section className="movies__empty"></section>
         )
         : foundMovies.length === 0 ? (
