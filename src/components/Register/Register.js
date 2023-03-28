@@ -35,6 +35,7 @@ function Register(props) {
         <label className="register__label" htmlFor="email">E-mail</label>
         <input type="email" className={"register__input " + (errors.email ? "register__input_error" : "")}  
           id="email" name="email" required placeholder="qwerty@yandex.ru" 
+          pattern="^[-\w.]+@([A-z0-9][-A-z0-9]+\.)+[A-z]{2,4}$"
           value={values.email} onChange={onChange}
         />
         <span className={"register__error " + (errors.email ? "register__error_active" : "")}>{errors.email}</span>

@@ -23,3 +23,9 @@ export default function convertDuration(duration) {
     return `${hours}ч ${minutes}м`;
   }
 };
+
+export const SHORTMOVIEDURATION = 40;
+
+export const SCREENFORMATCHANGE = 526;
+export const DESKTOPMOVIELISTLENGTH = 7;
+export const MOBILEMOVIELISTLENGTH = 5;

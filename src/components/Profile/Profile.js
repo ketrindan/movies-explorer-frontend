@@ -1,5 +1,4 @@
 import React, { useEffect, useContext } from 'react';
-import { Link } from 'react-router-dom';
 
 import './Profile.css';
 import useForm from "../../hooks/useForm";
@@ -12,6 +11,8 @@ function Profile(props) {
     name: "",
     email: ""
   });
+
+  const isNewData = (values.name !== currentUser.name || values.email !== currentUser.email)
 
   function handleSubmit(e) {
 		e.preventDefault();
@@ -41,12 +42,15 @@ function Profile(props) {
           <div className="profile__input-box">
             <label className="profile__label">E-mail</label>
             <input className="profile__input" type="email" placeholder="qwerty@yandex.ru" id="email" name="email"
+            pattern="^[-\w.]+@([A-z0-9][-A-z0-9]+\.)+[A-z]{2,4}$"
             value={values.email} onChange={onChange} required/>
           </div>
           <span className={"profile__error " + (errors.email ? "profile__error_active" : "")}>{errors.email}</span>
           <div className="profile__links">
-          <button className={"profile__btn profile__btn_edit " + (isValid ? "profile__btn_active" : "" )} type="submit">Редактировать</button>
-          <Link to='/signin'className="profile__btn profile__signout" onClick={props.onSignOut}>Выйти из аккаунта</Link>
+          <button className={"profile__btn profile__btn_edit " + (isValid & isNewData ? "profile__btn_active" : "" )} 
+            type="submit" disabled={!isValid || !isNewData}>Редактировать
+          </button>
+          <button className="profile__btn profile__signout" onClick={props.onSignOut}>Выйти из аккаунта</button>
         </div>
         </form>
       </div>

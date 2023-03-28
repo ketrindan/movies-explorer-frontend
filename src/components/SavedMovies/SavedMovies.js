@@ -6,6 +6,8 @@ import MoviesCardList from '../MoviesCardList/MoviesCardList';
 import Footer from '../Footer/Footer';
 import Preloader from '../Preloader/Preloader';
 
+import { SHORTMOVIEDURATION } from "../../utils/utils";
+
 import './SavedMovies.css';
 
 function SavedMovies(props) {
@@ -13,11 +15,9 @@ function SavedMovies(props) {
   const [shortMoviesSelected, setShortMoviesSelected] = useState(false);
   const [searchRequest, setSearchRequest] = useState('');
 
-  const shortMovieMaxDuration = 40;
-
   function searchShortMovies(movies) {
     return movies.filter((movie) =>
-      movie.duration <= shortMovieMaxDuration
+      movie.duration <= SHORTMOVIEDURATION
     )
   }
 

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Route, Switch, Redirect, useHistory  } from 'react-router-dom';
+import { Route, Switch, Redirect, useHistory, useLocation  } from 'react-router-dom';
 
 import './App.css';
 
@@ -30,6 +30,7 @@ function App() {
   const [isSuccessful, setIsSuccessful] = useState(false);
 
   const history = useHistory();
+  const location = useLocation();
 
   function openInfoTooltip() {
     setInfoTooltipOpen(true);
@@ -46,7 +47,7 @@ function App() {
       setIsSuccessful(true);
       setInfoMessage('Вы успешно зарегистрировались!')
       openInfoTooltip();
-      history.push('/signin');
+      onLogin(data);
     })
     .catch((err) => {
       console.log(err);
@@ -60,8 +61,18 @@ function App() {
     user.authorize(data.email, data.password)
     .then((data) => {
       localStorage.setItem('token', data.token);
-      history.push('/movies');
-      handleTokenCheck();
+      Promise.all([user.checkToken(data.token), user.getSavedMovies(data.token)])
+      .then(([userInfo, savedMoviesInfo]) => {
+        setCurrentUser(userInfo);
+        setLoggedIn(true);
+        setUserName(userInfo.name);
+        localStorage.setItem('savedMovies', JSON.stringify(savedMoviesInfo));
+        setSavedMovies(savedMoviesInfo);
+        history.push('/movies');
+      })
+      .catch((err) => {
+        console.log(err);
+      })
     })
     .catch((err) => {
       console.log(err);
@@ -73,6 +84,8 @@ function App() {
 
   function handleTokenCheck() {
     const token = localStorage.getItem('token');
+    const path = location.pathname;
+
     if (token) {
       Promise.all([user.checkToken(token), user.getSavedMovies(token)])
       .then(([userInfo, savedMoviesInfo]) => {
@@ -81,7 +94,7 @@ function App() {
         setUserName(userInfo.name);
         localStorage.setItem('savedMovies', JSON.stringify(savedMoviesInfo));
         setSavedMovies(savedMoviesInfo);
-        history.push('/movies');
+        history.push(path);
       })
       .catch((err) => {
         console.log(err);
@@ -211,16 +224,19 @@ function App() {
               onSignOut={handleSignOut}
             />
             <Route path="/signup">
-              <Register onSubmit={onRegistration}/>
+              {!isLoggedIn ? (<Register onSubmit={onRegistration}/>
+              ) : (
+                <Redirect to="/movies" />
+              )}
             </Route>
             <Route path="/signin">
-              <Login onSubmit={onLogin}/>
+              {!isLoggedIn ?  (<Login onSubmit={onLogin} />
+              ) : (
+                <Redirect to="/movies" />
+              )}
             </Route>
             <Route path="*">
               <NotFoundPage />
-            </Route> 
-            <Route>
-              {isLoggedIn ? <Redirect to="/" /> : <Redirect to="/signin" />}
             </Route>
           </Switch>
         </div>

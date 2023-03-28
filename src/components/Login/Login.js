@@ -28,6 +28,7 @@ function Login(props) {
         <label className="login__label" htmlFor="email">E-mail</label>
         <input type="email" className={"login__input " + (errors.email ? "login__input_error" : "")}
           id="email" name="email" required placeholder="qwerty@yandex.ru"
+          pattern="^[-\w.]+@([A-z0-9][-A-z0-9]+\.)+[A-z]{2,4}$"
           value={values.email} onChange={onChange}
         />
         <span className={"login__error " + (errors.email ? "login__error_active" : "")}>{errors.email}</span>

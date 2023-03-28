@@ -10,6 +10,7 @@ import Footer from '../Footer/Footer';
 import Preloader from '../Preloader/Preloader';
 
 import movie from '../../utils/MoviesApi';
+import { SHORTMOVIEDURATION } from "../../utils/utils";
 
 function Movies(props) {
   const [allMovies, setAllMovies] = useState([]);
@@ -20,11 +21,9 @@ function Movies(props) {
 
   const location = useLocation();
 
-  const shortMovieMaxDuration = 40;
-
   function searchShortMovies(movies) {
     return movies.filter((movie) =>
-      movie.duration <= shortMovieMaxDuration
+      movie.duration <= SHORTMOVIEDURATION
     )
   }
 
@@ -42,16 +41,8 @@ function Movies(props) {
 
   function renderMovies(movies, searchRequest, shortMoviesSelected) {
     const foundMovies = searchMovies(movies, searchRequest, shortMoviesSelected);
-
-    /*if (shortMoviesSelected) {
-      setFoundMovies(searchShortMovies(foundMovies));
-    } else {
-      setFoundMovies(foundMovies);
-    }*/
-
     localStorage.setItem('foundMovies', JSON.stringify(foundMovies));
     setFoundMovies(foundMovies);
-    console.log(foundMovies)
   }
   
   function handleSearchSubmit(searchRequest, shortMoviesSelected) {
@@ -61,20 +52,24 @@ function Movies(props) {
     setShortMoviesSelected(shortMoviesSelected);
     setSearchRequest(searchRequest);
 
-    props.setLoading(true)
-    movie.getMovies()
-    .then((movies) => {
-      localStorage.setItem('allMovies', JSON.stringify(movies));
-      setAllMovies(movies)
-      renderMovies(movies, searchRequest, shortMoviesSelected)
-    })
-    .catch((err) => {
-      console.log(err);
-      setIsError(true)
-    })
-    .finally(() => {
-      props.setLoading(false);
-    })
+    if (allMovies.length === 0) {
+      props.setLoading(true)
+      movie.getMovies()
+      .then((movies) => {
+        localStorage.setItem('allMovies', JSON.stringify(movies));
+        setAllMovies(movies)
+        renderMovies(movies, searchRequest, shortMoviesSelected)
+      })
+      .catch((err) => {
+        console.log(err);
+        setIsError(true)
+      })
+      .finally(() => {
+        props.setLoading(false);
+      })
+    } else {
+      renderMovies(allMovies, searchRequest, shortMoviesSelected)
+    }
   }
 
   function handleCheckbox() {
@@ -109,7 +104,6 @@ function Movies(props) {
       } else {
         setFoundMovies(renderedMovies);
       }
-      console.log(foundMovies)
     }
   }, [location, allMovies, searchRequest, shortMoviesSelected]);
 

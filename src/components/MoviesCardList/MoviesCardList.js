@@ -5,16 +5,14 @@ import MoviesCard from '../MoviesCard/MoviesCard';
 import MoreMovies from '../MoreMovies/MoreMovies';
 import useScreenWidth from '../../hooks/useScreenWidth';
 
+import {SCREENFORMATCHANGE, DESKTOPMOVIELISTLENGTH, MOBILEMOVIELISTLENGTH } from '../../utils/utils';
+
 import './MoviesCardList.css';
 
 function MoviesCardList(props) {
   const [shownMovies, setShownMovies] = useState([]);
 
   const screenWidth = useScreenWidth();
-
-  const screenFormatChange = 526;
-  const desktopMovieListLength = 7;
-  const mobileMovieListLength = 5;
 
   const moviesCounter = props.movies ? props.movies.length : 0;
 
@@ -24,10 +22,10 @@ function MoviesCardList(props) {
 
   useEffect(() => {
     if(!props.isSavedMovies) {
-      if (screenWidth > screenFormatChange) {
-        setShownMovies(props.movies.slice(0, desktopMovieListLength))
+      if (screenWidth > SCREENFORMATCHANGE) {
+        setShownMovies(props.movies.slice(0, DESKTOPMOVIELISTLENGTH))
       } else {
-        setShownMovies(props.movies.slice(0, mobileMovieListLength))
+        setShownMovies(props.movies.slice(0, MOBILEMOVIELISTLENGTH))
       }
     } else {
       setShownMovies(props.movies)
@@ -35,10 +33,10 @@ function MoviesCardList(props) {
   }, [screenWidth, props.movies, props.isSavedMovies])
 
   function handleMoreMoviesClick() {
-    if (screenWidth > screenFormatChange) {
-      setShownMovies(props.movies.slice(0, shownMovies.length + desktopMovieListLength))
+    if (screenWidth > SCREENFORMATCHANGE) {
+      setShownMovies(props.movies.slice(0, shownMovies.length + DESKTOPMOVIELISTLENGTH))
     } else {
-      setShownMovies(props.movies.slice(0, shownMovies.length + mobileMovieListLength))
+      setShownMovies(props.movies.slice(0, shownMovies.length + MOBILEMOVIELISTLENGTH))
     }
   }
 
