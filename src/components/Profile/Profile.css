@@ -28,15 +28,12 @@
 .profile__form {
   width: 410px;
   margin-top: 123px;
-  margin-bottom: 220px;
 }
 
 .profile__input-box {
   display: flex;
   justify-content: space-between;
-  padding-bottom: 16px;
-  border-bottom: 1px solid #E8E8E8;
-  margin-bottom: 17px;
+  margin-bottom: 5px;
 }
 
 
@@ -70,10 +67,36 @@
   border-radius: 3px;
 }
 
+.profile__error {
+  display: block;
+  min-height: 12px;
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 12px;
+  color: #FFFFFF;
+  text-align: right;
+  margin-bottom: 10px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid rgba(232, 232, 232, 1);
+  transition: color 0.3s linear;
+}
+
+.profile__error_active {
+  color: #FF4062
+}
+
+.profile__error:last-of-type {
+  margin-bottom: 0px;
+}
+
 .profile__links {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 16px;
+  margin-top: 220px;
 }
 
 .profile__btn {
@@ -99,9 +122,10 @@
 .profile__btn_active {
   color: #000000;
   cursor: pointer;
+  font-weight: 500;
 }
 
-.profile__btn_signout {
+.profile__signout {
   font-weight: 500;
   color: #FF4062;
   cursor: pointer;
@@ -115,7 +139,6 @@
 
   .profile__form {
     margin-top: 96px;
-    margin-bottom: 210px;
   }
 }
 
@@ -129,12 +152,10 @@
   .profile__form {
     width: 81%;
     margin-top: 80px;
-    margin-bottom: 379px;
   }
 
   .profile__links {
-    position: absolute;
-    bottom: 40px;
+    margin-top: 379px;
   }
   
 

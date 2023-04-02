@@ -2,7 +2,10 @@
   display: flex;
   flex-direction: column;
   width: 396px;
-  margin: 70px auto;
+  margin: 0 auto;
+  padding-top: 70px;
+  padding-bottom: 70px;
+  box-sizing: border-box;
 }
 
 .register__header {
@@ -155,14 +158,16 @@
 
 @media screen and (max-width: 768px) {
   .register {
-    margin: 232px auto;
+    padding-top: 232px;
+    padding-bottom: 232px;
   }
 }
 
 @media screen and (max-width: 426px) {
   .register {
     width: 81%;
-    margin: 56px auto 30px auto;
+    padding-top: 56px;
+    padding-bottom: 30px;
   }
 
   .register__header {
