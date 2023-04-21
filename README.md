@@ -2,6 +2,8 @@
 ## ***Дипломная работа курса [Яндекс.Практикум](https://practicum.yandex.ru/)***
 
 ![image](https://raw.githubusercontent.com/ketrindan/movies-explorer-frontend/main/src/images/screen1.png)
+
+
 ![image](https://raw.githubusercontent.com/ketrindan/movies-explorer-frontend/main/src/images/screen2.png)
 
 
