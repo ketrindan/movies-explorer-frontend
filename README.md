@@ -62,4 +62,7 @@ npm install
 
 ### **Демо**
 Frontend  https://movies-explorer.ketrindan.nomoredomains.work \
-Backend  https://api.movies.ketrindan.nomoredomains.work
+Backend  https://api.movies.ketrindan.nomoredomains.work\
+
+### **Статус проекта**
+✅ Работа завершена
