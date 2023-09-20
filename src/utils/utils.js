@@ -7,7 +7,7 @@ export const moviesConfig = {
 
 
 export const mainConfig = {
-  baseUrl: 'https://api.movies.ketrindan.nomoredomains.work',
+  baseUrl: 'http://localhost:3000',
   headers: {
     Accept: 'application/json',
     'Content-Type': 'application/json',

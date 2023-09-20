@@ -35,6 +35,9 @@ Movies Explorer - сервис, в котором можно искать фил
 * Минификация и транспиляция JS Babel
 * Webpack
 
+### **Демо**
+
+
 ### **Инструкция по установке и сборке**
 1. Клонировать репозиторий
 ```
@@ -58,11 +61,6 @@ npm install
 
 
 `npm run build` - запуск сборки проекта, проект будет собран в папку `build`
-
-
-### **Демо**
-Frontend  https://movies-explorer.ketrindan.nomoredomains.work \
-Backend  https://api.movies.ketrindan.nomoredomains.work\
 
 ### **Статус проекта**
 ✅ Работа завершена
