@@ -36,7 +36,7 @@ Movies Explorer - сервис, в котором можно искать фил
 * Webpack
 
 ### **Демо**
-
+https://github.com/ketrindan/movies-explorer-frontend/assets/107261441/4c36d192-fb66-427c-99af-2894722c1290
 
 ### **Инструкция по установке и сборке**
 1. Клонировать репозиторий
